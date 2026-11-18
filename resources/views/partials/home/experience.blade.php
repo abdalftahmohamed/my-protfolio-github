@@ -10,7 +10,7 @@
     @if ($experiences->isEmpty())
         <p class="text-center text-app-content-subtle">Experience will show up here once added from the admin panel.</p>
     @else
-        <div class="relative mx-auto max-w-3xl space-y-6 before:absolute before:start-5 before:top-3 before:h-[calc(100%-1.5rem)] before:w-px before:bg-gradient-to-b before:from-app-brand before:to-app-line">
+        <div class="relative w-full space-y-6 before:absolute before:start-5 before:top-3 before:h-[calc(100%-1.5rem)] before:w-px before:bg-gradient-to-b before:from-app-brand before:to-app-line">
             @foreach ($experiences as $experience)
                 <div class="relative ps-14">
                     <span class="absolute start-[14px] top-7 h-3 w-3 rounded-full border-2 border-app-brand bg-app-page shadow-[0_0_0_4px_var(--app-brand-soft)]"></span>
