@@ -16,26 +16,26 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $password = Str::random(12);
+        $password = "12345678";
 
         User::updateOrCreate(
-            ['email' => 'ahmed.ramadan.abdelaaty5@gmail.com'],
-            ['name' => 'Ahmed Ramadan', 'password' => $password]
+            ['email' => 'abdalftahmohamed054@gmail.com'],
+            ['name' => 'Abdalftah Mohamed', 'password' => $password]
         );
 
-        $this->command->warn("Admin login -> email: ahmed.ramadan.abdelaaty5@gmail.com | password: {$password}");
+        $this->command->warn("Admin login -> email: abdalftahmohamed054@gmail.com | password: {$password}");
 
         Profile::updateOrCreate(['id' => 1], [
-            'name' => 'Ahmed Ramadan',
+            'name' => 'Abdalftah Mohamed',
             'title' => 'Senior Full Stack Developer',
             'tagline' => 'Building scalable, secure, and high-performance web applications.',
             'bio' => "Full Stack Developer with 4 years of experience specializing in Laravel, PHP, and MySQL, with a proven track record of building scalable, secure, and high-performance web applications. Experienced in designing and developing RESTful APIs, integrating third-party services, optimizing database performance, and implementing secure authentication, authorization, and Role-Based Access Control (RBAC). Strong foundation in MVC architecture, Object-Oriented Programming (OOP), and software design principles, with hands-on experience in real-time applications using Pusher and Livewire. Passionate about writing clean, maintainable code, solving complex technical challenges, and delivering reliable, production-ready backend solutions.",
-            'email' => 'ahmed.ramadan.abdelaaty5@gmail.com',
-            'phone' => '+20 150 561 1560',
-            'location' => 'Zagazig, Egypt',
-            'github_url' => 'https://github.com/AhmedRamadan33?tab=repositories',
-            'linkedin_url' => 'https://www.linkedin.com/in/ahmed-ramadan-9565011a2/',
-            'whatsapp_url' => 'https://wa.me/+201505611560',
+            'email' => 'abdalftahmohamed054@gmail.com',
+            'phone' => '+20 109 152 3688',
+            'location' => 'Mansoura, Egypt',
+            'github_url' => 'https://github.com/abdalftahmohamed?tab=repositories',
+            'linkedin_url' => 'https://www.linkedin.com/in/abdelftah-mohamed-abdalftah-0640831b9',
+            'whatsapp_url' => 'https://wa.me/+201091523688',
         ]);
 
         $skills = [
@@ -200,34 +200,34 @@ class DatabaseSeeder extends Seeder
         Education::updateOrCreate(['institution' => 'Zagazig university'], [
             'degree' => "Bachelor's degree in computer science",
             'field' => 'Computer Science',
-            'start_date' => '2019-10-01',
-            'end_date' => '2023-06-01',
+            'start_date' => '2017-10-01',
+            'end_date' => '2021-06-01',
             'order' => 0,
         ]);
 
         $testimonials = [
             [
-                'quote' => 'Ahmed rebuilt our accounting and inventory workflow into one ERP system. The financial reporting alone saved us hours every week, and he was easy to reach whenever we needed changes.',
+                'quote' => 'Abdalftah rebuilt our accounting and inventory workflow into one ERP system. The financial reporting alone saved us hours every week, and he was easy to reach whenever we needed changes.',
                 'name' => 'Business Owner',
                 'role' => 'ERP System client',
             ],
             [
-                'quote' => 'We needed a learning platform that could handle payments, live classes, and certificates without breaking. Ahmed delivered exactly that and explained every technical decision clearly.',
+                'quote' => 'We needed a learning platform that could handle payments, live classes, and certificates without breaking. Abdalftah delivered exactly that and explained every technical decision clearly.',
                 'name' => 'Platform Founder',
                 'role' => 'Edvora LMS client',
             ],
             [
-                'quote' => 'Our clinic went from paper schedules to a full booking and records system in a few weeks. Ahmed paid close attention to how our staff actually work, not just the spec sheet.',
+                'quote' => 'Our clinic went from paper schedules to a full booking and records system in a few weeks. Abdalftah paid close attention to how our staff actually work, not just the spec sheet.',
                 'name' => 'Clinic Manager',
                 'role' => 'TimeDoc EG client',
             ],
             [
-                'quote' => 'Case tracking, client portal, multi-branch access, Ahmed handled the complexity of a legal office without slowing down. Support after launch has been just as reliable.',
+                'quote' => 'Case tracking, client portal, multi-branch access, Abdalftah handled the complexity of a legal office without slowing down. Support after launch has been just as reliable.',
                 'name' => 'Law Firm Partner',
                 'role' => 'LexOffice client',
             ],
             [
-                'quote' => 'Clear communication from day one. Ahmed scoped the API, flagged risks early, and shipped on the timeline he committed to.',
+                'quote' => 'Clear communication from day one. Abdalftah scoped the API, flagged risks early, and shipped on the timeline he committed to.',
                 'name' => 'Startup Founder',
                 'role' => 'Product client',
             ],
@@ -237,12 +237,12 @@ class DatabaseSeeder extends Seeder
                 'role' => 'Backend project client',
             ],
             [
-                'quote' => 'We handed Ahmed a messy set of requirements around roles and permissions, and he turned it into a clean, secure access control system without extra back and forth.',
+                'quote' => 'We handed Abdalftah a messy set of requirements around roles and permissions, and he turned it into a clean, secure access control system without extra back and forth.',
                 'name' => 'Operations Manager',
                 'role' => 'RBAC implementation client',
             ],
             [
-                'quote' => 'Reliable, responsive, and genuinely invested in getting the details right. I would work with Ahmed again without hesitation.',
+                'quote' => 'Reliable, responsive, and genuinely invested in getting the details right. I would work with Abdalftah again without hesitation.',
                 'name' => 'Product Owner',
                 'role' => 'Long-term client',
             ],
