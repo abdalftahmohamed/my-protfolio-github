@@ -1,9 +1,10 @@
 @props(['profile' => null])
 <!DOCTYPE html>
-<html lang="en" data-theme="light" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @include('partials.theme-head')
     <meta name="google-site-verification" content="HNDDrb5cQoensf_rR5XK7xu2vfQ7wZ0mLflPLRLvyR0" />
 
     @php
@@ -57,7 +58,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="relative bg-white text-gray-900 antialiased">
+<body class="relative bg-app-page text-app-content antialiased transition-colors duration-500">
 
     <noscript><style>#preloader { display: none !important; }</style></noscript>
     <div id="preloader" role="presentation" aria-hidden="true">
@@ -76,7 +77,7 @@
         ];
     @endphp
 
-    <div id="navbar" class="sticky top-0 bg-white z-50 transition-all duration-500">
+    <div id="navbar" class="sticky top-0 bg-app-page z-50 transition-all duration-500">
         <div class="navbar flex justify-between mx-auto content gap-2">
             <div class="flex min-w-0 items-center gap-3">
                 <div class="dropdown">
@@ -85,7 +86,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabindex="0" class="menu menu-lg dropdown-content rounded-box z-1 mt-3 w-56 p-2 shadow font-semibold flex-nowrap bg-white text-black">
+                    <ul tabindex="0" class="menu menu-lg dropdown-content rounded-box z-1 mt-3 w-56 p-2 shadow font-semibold flex-nowrap bg-app-surface text-app-content">
                         @foreach ($navItems as $item)
                             <li><a data-nav-link data-menu-link href="#{{ $item['url'] }}" class="hover:text-picto-primary px-5 py-3 mx-1">{{ $item['name'] }}</a></li>
                         @endforeach
@@ -100,13 +101,23 @@
                 </a>
             </div>
 
-            <div class="xl:flex items-center shrink-0">
+            <div class="flex items-center shrink-0 gap-2 max-xs:gap-1">
                 <ul class="hidden xl:flex menu menu-horizontal text-[15px] font-medium shrink-0">
                     @foreach ($navItems as $item)
                         <li><a data-nav-link href="#{{ $item['url'] }}" class="hover:text-picto-primary px-3 py-3">{{ $item['name'] }}</a></li>
                     @endforeach
                 </ul>
-                <p class="">
+                <button type="button" data-theme-toggle
+                    class="btn btn-ghost btn-sm xs:btn-md sm:btn-lg px-1.5 xs:px-2 shrink-0 text-app-content"
+                    aria-label="Toggle dark mode" aria-pressed="false">
+                    <svg class="theme-icon-dark h-4.5 w-4.5 xs:h-5 xs:w-5 sm:h-6 sm:w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                    </svg>
+                    <svg class="theme-icon-light h-4.5 w-4.5 xs:h-5 xs:w-5 sm:h-6 sm:w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+                    </svg>
+                </button>
+                <p class="shrink-0">
                     <a href="#contact" class="btn btn-sm xs:btn-md sm:btn-lg btn-primary">Contact</a>
                 </p>
             </div>
@@ -142,7 +153,7 @@
                     @foreach ($footerItems as $item)
                         <a class="mx-2 group inline-block relative w-fit text-[12px] sm:text-[16px]" href="#{{ $item['url'] }}">
                             {{ $item['name'] }}
-                            <span class="absolute left-0 bottom-0 h-0.5 w-full bg-white scale-x-0 duration-300 group-hover:scale-x-100"></span>
+                            <span class="absolute left-0 bottom-0 h-0.5 w-full bg-app-surface scale-x-0 duration-300 group-hover:scale-x-100"></span>
                         </a>
                     @endforeach
                 </div>

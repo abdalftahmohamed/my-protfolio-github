@@ -1,10 +1,14 @@
 @import 'tailwindcss';
-@plugin "daisyui";
+@plugin "daisyui" {
+    themes: light --default, dark;
+}
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
     --font-sans: 'Work Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -18,6 +22,82 @@
     --color-soft-dark: #87909d;
 }
 
+/* Semantic colors: the theme attribute on <html> switches every token at once. */
+@theme inline {
+    --color-app-page: var(--app-page);
+    --color-app-surface: var(--app-surface);
+    --color-app-surface-muted: var(--app-surface-muted);
+    --color-app-surface-hover: var(--app-surface-hover);
+    --color-app-admin-page: var(--app-admin-page);
+    --color-app-admin-surface: var(--app-admin-surface);
+    --color-app-content: var(--app-content);
+    --color-app-content-muted: var(--app-content-muted);
+    --color-app-content-subtle: var(--app-content-subtle);
+    --color-app-line: var(--app-line);
+    --color-app-brand: var(--app-brand);
+    --color-app-brand-hover: var(--app-brand-hover);
+    --color-app-brand-soft: var(--app-brand-soft);
+    --color-app-brand-ink: var(--app-brand-ink);
+    --color-app-mint: var(--app-mint);
+    --color-app-success: var(--app-success);
+    --color-app-error: var(--app-error);
+}
+
+:root,
+[data-theme='light'] {
+    color-scheme: light;
+    --app-page: #ffffff;
+    --app-surface: #ffffff;
+    --app-surface-muted: #f0f1f3;
+    --app-surface-hover: #f4f4f5;
+    --app-admin-page: #f4f4f5;
+    --app-admin-surface: #ffffff;
+    --app-content: #132238;
+    --app-content-muted: #4b5563;
+    --app-content-subtle: #87909d;
+    --app-line: #e6e8eb;
+    --app-brand: #9929fb;
+    --app-brand-hover: #650fa0;
+    --app-brand-soft: #edd8ff80;
+    --app-brand-ink: #9929fb;
+    --app-mint: #c4f5e9;
+    --app-success: #047857;
+    --app-error: #e11d48;
+    --app-shadow: rgba(19, 34, 56, 0.15);
+    --app-shadow-lg: rgba(19, 34, 56, 0.12);
+}
+
+[data-theme='dark'] {
+    color-scheme: dark;
+    --app-page: #09090b;
+    --app-surface: #18181b;
+    --app-surface-muted: #121216;
+    --app-surface-hover: #27272a;
+    --app-admin-page: #09090b;
+    --app-admin-surface: #18181b;
+    --app-content: #f4f4f5;
+    --app-content-muted: #c4c4cc;
+    --app-content-subtle: #8b8b96;
+    --app-line: rgba(255, 255, 255, 0.12);
+    --app-brand: #b45cff;
+    --app-brand-hover: #9929fb;
+    --app-brand-soft: rgba(153, 41, 251, 0.18);
+    --app-brand-ink: #c99cff;
+    --app-mint: #134e4a;
+    --app-success: #6ee7b7;
+    --app-error: #fb7185;
+    --app-shadow: rgba(0, 0, 0, 0.6);
+    --app-shadow-lg: rgba(0, 0, 0, 0.7);
+}
+
+@utility shadow-app-card {
+    box-shadow: 0 12px 30px -14px var(--app-shadow);
+}
+
+@utility shadow-app-card-lg {
+    box-shadow: 0 20px 60px -15px var(--app-shadow-lg);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -27,12 +107,12 @@ body {
 }
 
 ::selection {
-    background-color: color-mix(in oklab, var(--color-picto-primary) 60%, transparent);
+    background-color: color-mix(in oklab, var(--color-app-brand) 60%, transparent);
     color: white;
 }
 
 .btn-primary {
-    @apply bg-picto-primary border-0 text-white hover:scale-[102%] hover:bg-picto-primary-dark transition-all duration-500;
+    @apply bg-app-brand border-0 text-white hover:scale-[102%] hover:bg-app-brand-hover transition-all duration-500;
 }
 
 .content {
@@ -55,10 +135,20 @@ body {
     padding-right: 2px;
 }
 
+[data-theme='dark'] .bg-highlight {
+    background: linear-gradient(to top, rgba(180, 92, 255, 0.45) 40%, transparent 40%);
+}
+
 .introduction-profile-background {
     background: radial-gradient(circle at 12% 100%, #ffe2b0f5 1% 5px, transparent 15%),
         radial-gradient(circle at 95% -15%, #da4df166 5%, transparent 30%),
         radial-gradient(circle at center right, #c4f5e9b2 2%, transparent 35%);
+}
+
+[data-theme='dark'] .introduction-profile-background {
+    background: radial-gradient(circle at 12% 100%, rgba(255, 226, 176, 0.08) 1% 5px, transparent 15%),
+        radial-gradient(circle at 95% -15%, rgba(218, 77, 241, 0.12) 5%, transparent 30%),
+        radial-gradient(circle at center right, rgba(37, 160, 140, 0.1) 2%, transparent 35%);
 }
 
 .reveal {
@@ -72,6 +162,23 @@ body {
     transform: translateY(0);
 }
 
+/* Theme toggle icons */
+.theme-icon-dark {
+    display: block;
+}
+
+.theme-icon-light {
+    display: none;
+}
+
+[data-theme='dark'] .theme-icon-dark {
+    display: none;
+}
+
+[data-theme='dark'] .theme-icon-light {
+    display: block;
+}
+
 #preloader {
     position: fixed;
     inset: 0;
@@ -79,7 +186,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
+    background: var(--app-page);
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 

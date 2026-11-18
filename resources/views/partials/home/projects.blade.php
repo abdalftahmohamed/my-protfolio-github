@@ -2,20 +2,20 @@
     <div class="xl:mb-17.5 mb-5">
         <div class="max-sm:px-2 text-center mx-auto max-w-144.25">
             <p class="section-title">Projects</p>
-            <p class="font-normal text-[18px] max-sm:text-[14px] pt-6 text-gray-400">
+            <p class="font-normal text-[18px] max-sm:text-[14px] pt-6 text-app-content-subtle">
                 Here's a selection of my recent work, showcasing backend systems, APIs, and full-stack applications I've built.
             </p>
         </div>
     </div>
 
     @if ($projects->isEmpty())
-        <p class="text-center text-gray-400">Projects will show up here once added from the admin panel.</p>
+        <p class="text-center text-app-content-subtle">Projects will show up here once added from the admin panel.</p>
     @else
         <div class="mx-auto flex justify-center">
             <div class="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
                 @foreach ($projects as $project)
-                    <div class="max-w-106 rounded-lg outline-[#FFFFFF] hover:shadow-2xl duration-300 transition-all shadow-gray-300 border border-gray-200 overflow-hidden">
-                        <div class="aspect-video w-full overflow-hidden bg-gradient-to-br from-picto-primary/10 to-[#c4f5e9]">
+                    <div class="max-w-106 rounded-lg outline-app-line hover:shadow-2xl duration-300 transition-all shadow-app-card border border-app-line overflow-hidden">
+                        <div class="aspect-video w-full overflow-hidden bg-gradient-to-br from-picto-primary/10 to-app-mint">
                             @if ($project->image_path)
                                 <img src="{{ asset('storage/' . $project->image_path) }}" alt="{{ $project->title }}" class="h-full w-full object-cover">
                             @else
@@ -26,18 +26,18 @@
                         </div>
                         <div class="p-4 xs:p-8">
                             <div class="flex items-start justify-between gap-2">
-                                <p class="text-gray-400 text-xs font-medium">{{ !empty($project->tech_stack) ? strtoupper($project->tech_stack[0]) : 'PROJECT' }}</p>
+                                <p class="text-app-content-subtle text-xs font-medium">{{ !empty($project->tech_stack) ? strtoupper($project->tech_stack[0]) : 'PROJECT' }}</p>
                                 @if ($project->featured)
                                     <span class="shrink-0 rounded-full bg-picto-primary/10 px-2.5 py-0.5 text-xs font-medium text-picto-primary">Featured</span>
                                 @endif
                             </div>
-                            <p class="text-gray-900 text-md xxs:text-lg font-semibold pt-1 mb-3">{{ $project->title }}</p>
-                            <p style="line-height:20px" class="text-gray-600 text-xs xxs:text-[14px] text-wrap">{{ $project->description }}</p>
+                            <p class="text-app-content text-md xxs:text-lg font-semibold pt-1 mb-3">{{ $project->title }}</p>
+                            <p style="line-height:20px" class="text-app-content-muted text-xs xxs:text-[14px] text-wrap">{{ $project->description }}</p>
 
                             @if (!empty($project->tech_stack))
                                 <div class="mt-4 flex flex-wrap gap-2">
                                     @foreach ($project->tech_stack as $tech)
-                                        <span class="rounded-full border border-gray-200 px-2.5 py-0.5 text-xs text-gray-500">{{ $tech }}</span>
+                                        <span class="rounded-full border border-app-line px-2.5 py-0.5 text-xs text-app-content-muted">{{ $tech }}</span>
                                     @endforeach
                                 </div>
                             @endif
@@ -45,7 +45,7 @@
                             <div class="mt-5 flex items-center gap-3">
                                 @if ($project->github_url)
                                     <a href="{{ $project->github_url }}" target="_blank" rel="noopener" title="View source on GitHub"
-                                        class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition hover:border-picto-primary hover:text-picto-primary">
+                                        class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-app-line text-app-content-muted transition hover:border-picto-primary hover:text-picto-primary">
                                         <span class="sr-only">GitHub</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor">
                                             <path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.16.69-3.83-1.34-3.83-1.34-.52-1.32-1.26-1.68-1.26-1.68-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.61 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.36-2.65 5.31-5.18 5.6.41.35.77 1.04.77 2.11 0 1.52-.01 2.75-.01 3.13 0 .3.2.66.79.55 4.51-1.51 7.77-5.76 7.77-10.78C23.25 5.48 18.27.5 12 .5Z"/>
@@ -54,7 +54,7 @@
                                 @endif
                                 @if ($project->live_url)
                                     <a href="{{ $project->live_url }}" target="_blank" rel="noopener"
-                                        class="btn hover:border-picto-primary hover:text-picto-primary bg-white text-sm xs:text-[16px] font-semibold hover:gap-3 xs:hover:gap-4 transition-all duration-300 xs:py-5.75 px-6 max-sm:flex-1 max-sm:min-w-0">
+                                        class="btn hover:border-picto-primary hover:text-picto-primary bg-app-surface text-sm xs:text-[16px] font-semibold hover:gap-3 xs:hover:gap-4 transition-all duration-300 xs:py-5.75 px-6 max-sm:flex-1 max-sm:min-w-0">
                                         Live
                                         <span class="ms-1 xs:ms-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

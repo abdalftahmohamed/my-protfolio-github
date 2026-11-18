@@ -4,7 +4,7 @@
             <p class="text-white md:font-semibold text-2xl sm:text-3xl md:text-5xl pb-8">
                 Do you have a Project Idea? Let's discuss your project!
             </p>
-            <p class="text-[#A5ACB5] text-xs sm:text-lg font-normal text-center pb-8">
+            <p class="text-app-content-subtle text-xs sm:text-lg font-normal text-center pb-8">
                 I'm always open to discussing new projects and backend challenges. Let's connect and build something reliable together.
             </p>
             <a href="#contact" class="btn btn-primary px-4 md:px-6.5 py-3 md:py-6 text-[12px] md:text-[16px]">

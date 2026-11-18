@@ -1,4 +1,11 @@
 import './bootstrap';
+import { initTheme } from './theme';
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTheme);
+} else {
+    initTheme();
+}
 
 const hidePreloader = () => {
     const preloader = document.getElementById('preloader');
@@ -20,10 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navbar) {
         const handleNavbarScroll = () => {
             const scrolled = window.scrollY > 50;
-            navbar.classList.toggle('bg-soft-white', scrolled);
+            navbar.classList.toggle('bg-app-surface-muted', scrolled);
             navbar.classList.toggle('border-b', scrolled);
-            navbar.classList.toggle('border-gray-300', scrolled);
-            navbar.classList.toggle('bg-white', !scrolled);
+            navbar.classList.toggle('border-app-line', scrolled);
+            navbar.classList.toggle('bg-app-page', !scrolled);
         };
         window.addEventListener('scroll', handleNavbarScroll);
         handleNavbarScroll();

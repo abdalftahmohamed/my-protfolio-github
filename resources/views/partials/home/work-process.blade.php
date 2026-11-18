@@ -29,26 +29,26 @@
 <div class="reveal content grid xl:grid-cols-2 xl:items-center px-2 py-5 md:py-10 lg:py-25 xl:py-35 max-xxl:px-4" id="work-process">
     <div class="lg:pe-10 xl:pe-35.75 max-xs:mb-3 max-xl:mb-8">
         <p class="section-title max-xl:text-center">Work Process</p>
-        <p class="mt-6 mb-4 md:text-[18px] text-sm font-normal max-xl:text-center text-gray-500">
+        <p class="mt-6 mb-4 md:text-[18px] text-sm font-normal max-xl:text-center text-app-content-muted">
             Every project starts with understanding the problem, not the code. From there I design a
             system that's built to last — clear architecture, solid data models, and APIs that make sense.
         </p>
-        <p class="mt-6 md:text-[18px] text-sm font-normal max-xl:text-center text-gray-500">
+        <p class="mt-6 md:text-[18px] text-sm font-normal max-xl:text-center text-app-content-muted">
             I combine careful planning with clean, well-tested code to ship backend systems that are reliable in production.
         </p>
     </div>
 
     <div class="grid xs:grid-cols-2 justify-end my-2 w-fit mx-auto">
         @foreach ($workSteps as $index => $data)
-            <div class="group rounded-xl hover:drop-shadow-2xl shadow-gray-300 ease-out duration-1000 p-4 sm:p-8 bg-white aspect-auto sm:max-w-78 {{ $index % 2 == 1 ? 'xs:ms-3 xs:mt-6' : 'xs:mb-6' }}">
-                <div class="w-11 h-11 sm:w-18 sm:h-18 bg-[#EDD8FF80] group-hover:bg-picto-primary text-center center rounded-md transition-colors duration-500">
+            <div class="group rounded-xl hover:drop-shadow-2xl shadow-app-card ease-out duration-1000 p-4 sm:p-8 bg-app-surface aspect-auto sm:max-w-78 {{ $index % 2 == 1 ? 'xs:ms-3 xs:mt-6' : 'xs:mb-6' }}">
+                <div class="w-11 h-11 sm:w-18 sm:h-18 bg-app-brand-soft group-hover:bg-picto-primary text-center center rounded-md transition-colors duration-500">
                     <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="max-sm:p-2 sm:w-8 sm:h-8">
-                        <path d="{{ $data['svgPath'] }}" class="fill-[#A53DFF] group-hover:fill-white transition-colors duration-500" />
+                        <path d="{{ $data['svgPath'] }}" class="fill-app-brand group-hover:fill-white transition-colors duration-500" />
                     </svg>
                 </div>
                 <div class="mt-3 xs:mt-4 sm:mt-8">
                     <p class="font-semibold sm:text-xl">{{ $data['id'] }}. {{ $data['title'] }}</p>
-                    <p class="mt-3 text-[13px] sm:text-[16px] text-[#697482]">{{ $data['description'] }}</p>
+                    <p class="mt-3 text-[13px] sm:text-[16px] text-app-content-muted">{{ $data['description'] }}</p>
                 </div>
             </div>
         @endforeach

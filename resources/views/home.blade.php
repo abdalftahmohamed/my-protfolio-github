@@ -2,7 +2,7 @@
     <div class="relative">
         @include('partials.home.hero')
         @include('partials.home.about')
-        <div class="bg-soft-white">
+        <div class="bg-app-surface-muted">
             @include('partials.home.work-process')
         </div>
         @include('partials.home.skills')
@@ -10,7 +10,7 @@
         @include('partials.home.experience')
         @include('partials.home.education')
         @include('partials.home.work-together')
-        <div class="bg-soft-white">
+        <div class="bg-app-surface-muted">
             @include('partials.home.services')
         </div>
         @include('partials.home.testimonials')

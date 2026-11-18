@@ -35,19 +35,19 @@
 <div class="reveal content px-2 py-10 md:py-15 lg:py-25 max-xxl:px-4" id="services">
     <div class="max-sm:px-2 text-center mx-auto max-w-165 mb-12 md:mb-16">
         <p class="section-title">What We Do</p>
-        <p class="font-normal text-[18px] max-sm:text-[14px] pt-6 text-gray-400">
+        <p class="font-normal text-[18px] max-sm:text-[14px] pt-6 text-app-content-subtle">
             We specialize in building reliable, secure, and high-performance systems that power real businesses.
         </p>
     </div>
 
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         @foreach ($services as $service)
-            <div class="rounded-xl bg-white shadow-gray-300 shadow-lg p-6 sm:p-8">
+            <div class="rounded-xl bg-app-surface shadow-app-card shadow-lg p-6 sm:p-8">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-picto-primary/10 text-picto-primary">
                     {!! $service['icon'] !!}
                 </div>
-                <p class="mb-3 text-lg font-semibold text-[#132238]">{{ $service['title'] }}</p>
-                <p class="text-[14px] sm:text-[15px] font-normal text-gray-500">{{ $service['description'] }}</p>
+                <p class="mb-3 text-lg font-semibold text-app-content">{{ $service['title'] }}</p>
+                <p class="text-[14px] sm:text-[15px] font-normal text-app-content-muted">{{ $service['description'] }}</p>
             </div>
         @endforeach
     </div>

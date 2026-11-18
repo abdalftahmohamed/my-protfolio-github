@@ -6,20 +6,20 @@
     ]);
 @endphp
 <div class="reveal relative -bottom-15 -mt-15 z-10 px-2">
-    <div class="content p-4 md:p-10 lg:p-22 bg-white rounded-2xl shadow-[0px_0px_90px_9px_rgba(0,_0,_0,_0.1)]" id="contact">
+    <div class="content p-4 md:p-10 lg:p-22 bg-app-surface rounded-2xl shadow-app-card-lg" id="contact">
         <div class="flex flex-col-reverse lg:gap-5 xl:gap-25.75 lg:flex-row justify-between">
             <div>
                 <div>
-                    <p class="text-[35px] max-lg:hidden font-semibold text-nowrap text-[#132238]">Let's discuss your Project</p>
-                    <p class="text-[12px] xs:text-[14px] sm:text-lg md:text-lg max-lg:text-center pt-4 font-normal text-soft-dark">
+                    <p class="text-[35px] max-lg:hidden font-semibold text-nowrap text-app-content">Let's discuss your Project</p>
+                    <p class="text-[12px] xs:text-[14px] sm:text-lg md:text-lg max-lg:text-center pt-4 font-normal text-app-content-muted">
                         I'm available for freelance and full-time backend work. Drop me a line if you have a project you think I'd be a good fit for.
                     </p>
                 </div>
                 @if (count($addressData))
                     <div class="my-8.75 sm:max-lg:flex justify-between items-center">
                         @foreach ($addressData as $item)
-                            <div class="group max-w-84 p-3 md:p-3.75 lg:p-6 flex xs:not-odd:my-3 rounded-[10px] bg-white duration-450 cursor-pointer hover:shadow-[0px_0px_37px_5px_rgba(0,_0,_0,_0.1)] shadow-gray-200 max-sm:mx-auto">
-                                <div class="h-10 md:h-12 aspect-square bg-[#EDD8FF80] group-hover:bg-picto-primary center rounded-[4px] transition-colors duration-300 shrink-0">
+                            <div class="group max-w-84 p-3 md:p-3.75 lg:p-6 flex xs:not-odd:my-3 rounded-[10px] bg-app-surface duration-450 cursor-pointer hover:shadow-app-card-lg shadow-app-card max-sm:mx-auto">
+                                <div class="h-10 md:h-12 aspect-square bg-app-brand-soft group-hover:bg-picto-primary center rounded-[4px] transition-colors duration-300 shrink-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 text-picto-primary group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         @switch($item['icon'])
                                             @case('location')
@@ -34,8 +34,8 @@
                                     </svg>
                                 </div>
                                 <div class="ms-3.25 min-w-0 flex-1">
-                                    <p class="text-[12px] md:text-[14px] text-[#424E60] font-normal">{{ $item['title'] }}:</p>
-                                    <p class="text-[14px] md:text-[16px] text-[#132238] font-medium break-words">{{ $item['description'] }}</p>
+                                    <p class="text-[12px] md:text-[14px] text-app-content-muted font-normal">{{ $item['title'] }}:</p>
+                                    <p class="text-[14px] md:text-[16px] text-app-content font-medium break-words">{{ $item['description'] }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -44,17 +44,17 @@
             </div>
 
             <div class="w-full overflow-y-scroll py-6.5">
-                <p class="text-xl mb-2 xs:text-2xl sm:text-2xl md:text-[38px] font-semibold text-[#132238] lg:hidden text-center">
+                <p class="text-xl mb-2 xs:text-2xl sm:text-2xl md:text-[38px] font-semibold text-app-content lg:hidden text-center">
                     Let's discuss your Project
                 </p>
 
                 @if (session('contact_success'))
-                    <p class="mb-4 rounded-lg border border-emerald-300 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
+                    <p class="mb-4 rounded-lg border border-app-success/30 bg-app-success/10 px-4 py-3 text-sm text-app-success">
                         {{ session('contact_success') }}
                     </p>
                 @endif
 
-                <p class="text-[12px] xs:text-[14px] max-lg:text-center sm:text-lg font-normal text-soft-dark">
+                <p class="text-[12px] xs:text-[14px] max-lg:text-center sm:text-lg font-normal text-app-content-muted">
                     I'm always open to discussing backend work or partnership opportunities.
                 </p>
                 <div class="mx-2">
@@ -62,23 +62,23 @@
                         @csrf
                         <div>
                             <input type="text" name="name" value="{{ old('name') }}" placeholder="Name*"
-                                class="input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-[#E6E8EB] w-full rounded-none px-0">
-                            @error('name')<p class="mt-1 text-xs text-rose-500">{{ $message }}</p>@enderror
+                                class="input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-app-line w-full rounded-none px-0">
+                            @error('name')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
                         </div>
                         <div>
                             <input type="email" name="email" value="{{ old('email') }}" placeholder="Email*"
-                                class="input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-[#E6E8EB] w-full rounded-none px-0">
-                            @error('email')<p class="mt-1 text-xs text-rose-500">{{ $message }}</p>@enderror
+                                class="input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-app-line w-full rounded-none px-0">
+                            @error('email')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
                         </div>
                         <div>
                             <input type="text" name="subject" value="{{ old('subject') }}" placeholder="Subject"
-                                class="input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-[#E6E8EB] w-full rounded-none px-0">
-                            @error('subject')<p class="mt-1 text-xs text-rose-500">{{ $message }}</p>@enderror
+                                class="input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-app-line w-full rounded-none px-0">
+                            @error('subject')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
                         </div>
                         <div>
                             <textarea name="message" rows="3" placeholder="Message*"
-                                class="textarea textarea-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-[#E6E8EB] w-full rounded-none px-0">{{ old('message') }}</textarea>
-                            @error('message')<p class="mt-1 text-xs text-rose-500">{{ $message }}</p>@enderror
+                                class="textarea textarea-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-app-line w-full rounded-none px-0">{{ old('message') }}</textarea>
+                            @error('message')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
                         </div>
 
                         <button type="submit" class="btn gap-3 max-lg:mx-auto btn-primary rounded-sm mt-5 text-[13px] md:text-[16px] w-fit font-semibold lg:mt-12.5 p-2 md:px-4">

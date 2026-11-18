@@ -1,7 +1,7 @@
-<div class="reveal relative mx-4 xxl:mx-auto xxl:max-w-[1320px] -mt-20 lg:-mt-28 z-10 rounded-2xl bg-white drop-shadow-2xl max-xl:mb-5 shadow-white xl:p-28 lg:p-20 md:p-16 sm:p-10 p-4" id="profile">
+<div class="reveal relative mx-4 xxl:mx-auto xxl:max-w-[1320px] -mt-20 lg:-mt-28 z-10 rounded-2xl bg-app-surface drop-shadow-2xl max-xl:mb-5 shadow-app-card xl:p-28 lg:p-20 md:p-16 sm:p-10 p-4" id="profile">
     <div class="flex max-md:flex-col justify-between items-center gap-6">
         <div class="xxl:max-w-106 w-auto h-auto xxl:max-h-126">
-            <div class="max-w-106 h-117 w-full overflow-hidden rounded-xl bg-soft-white center">
+            <div class="max-w-106 h-117 w-full overflow-hidden rounded-xl bg-app-surface-muted center">
                 @if ($profile?->avatar_path)
                     <img class="h-full w-full object-cover" src="{{ asset('storage/' . $profile->avatar_path) }}" alt="{{ $profile->name }}">
                 @else
@@ -12,7 +12,7 @@
             </div>
             <div class="relative bottom-9">
                 <div class="flex justify-center">
-                    <div class="px-6 max-w-66 py-3 z-50 text-center bg-white rounded-[4px] center shadow-2xl drop-shadow-2xl shadow-white">
+                    <div class="px-6 max-w-66 py-3 z-50 text-center bg-app-surface rounded-[4px] center shadow-2xl drop-shadow-2xl shadow-app-card">
                         <x-social-media :profile="$profile" />
                     </div>
                 </div>
@@ -23,7 +23,7 @@
             <h2 class="text-2xl xxs:text-3xl sm:text-4xl lg:text-[38px] text-[min(24px,38px)] max-md:text-center font-semibold mb-8">
                 I am {{ $profile->title ?? 'a Backend Developer' }}
             </h2>
-            <div class="text-xs xs:text-[16px] lg:text-lg font-normal text-gray-600">
+            <div class="text-xs xs:text-[16px] lg:text-lg font-normal text-app-content-muted">
                 @if ($profile?->bio)
                     @foreach (explode("\n", $profile->bio) as $paragraph)
                         @if (trim($paragraph) !== '')

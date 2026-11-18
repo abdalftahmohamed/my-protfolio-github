@@ -28,7 +28,7 @@
                     My Projects
                 </a>
                 @if ($profile?->cv_path)
-                    <a class="btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 hover:border-picto-primary bg-white duration-300 transition-all hover:text-picto-primary ms-4 text-xs xxs:text-[14px] sm:text-[16px]"
+                    <a class="btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 hover:border-picto-primary bg-app-surface duration-300 transition-all hover:text-picto-primary ms-4 text-xs xxs:text-[14px] sm:text-[16px]"
                         href="{{ asset('storage/' . $profile->cv_path) }}" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 15V3m0 12-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
@@ -40,7 +40,7 @@
         </div>
     </div>
     <div class="max-w-134 w-full h-full max-lg:mx-auto aspect-[536/636] relative">
-        <div class="shadow-2xl shadow-gray-200 w-full h-full absolute bottom-0 bg-gradient-to-br from-picto-primary/15 to-[#c4f5e9] rounded-3xl center overflow-hidden">
+        <div class="shadow-2xl shadow-app-card w-full h-full absolute bottom-0 bg-gradient-to-br from-picto-primary/15 to-app-mint rounded-3xl center overflow-hidden">
             @if ($profile?->avatar_path)
                 <img class="w-full h-full object-cover" src="{{ asset('storage/' . $profile->avatar_path) }}" alt="{{ $profile->name }}">
             @else
