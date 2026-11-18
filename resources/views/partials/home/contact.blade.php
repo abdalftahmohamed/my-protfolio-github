@@ -5,22 +5,28 @@
         $profile?->phone ? ['title' => 'Call Me Now', 'description' => $profile->phone, 'icon' => 'phone'] : null,
     ]);
 @endphp
-<div class="reveal relative -bottom-15 -mt-15 z-10 px-2">
-    <div class="content p-4 md:p-10 lg:p-22 bg-app-surface rounded-2xl shadow-app-card-lg" id="contact">
-        <div class="flex flex-col-reverse lg:gap-5 xl:gap-25.75 lg:flex-row justify-between">
+
+<div class="reveal relative -bottom-10 -mt-10 z-10 px-2">
+    <div class="content surface-card relative overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-16" id="contact">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-app-brand to-transparent"></div>
+        <div class="ambient-orb -right-20 -top-24 h-64 w-64 bg-app-brand/10"></div>
+
+        <div class="relative z-10 grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
-                <div>
-                    <p class="text-[35px] max-lg:hidden font-semibold text-nowrap text-app-content">Let's discuss your Project</p>
-                    <p class="text-[12px] xs:text-[14px] sm:text-lg md:text-lg max-lg:text-center pt-4 font-normal text-app-content-muted">
-                        I'm available for freelance and full-time backend work. Drop me a line if you have a project you think I'd be a good fit for.
-                    </p>
-                </div>
+                <span class="section-kicker mb-4">Get in touch</span>
+                <p class="text-2xl sm:text-3xl lg:text-[38px] leading-tight font-semibold text-app-content">
+                    Let's discuss your <span class="gradient-text">next project</span>
+                </p>
+                <p class="mt-4 max-w-md text-[13px] xs:text-[14px] sm:text-base leading-relaxed font-normal text-app-content-muted">
+                    I'm available for freelance and full-time backend work. Drop me a line if you have a project I'd be a good fit for.
+                </p>
+
                 @if (count($addressData))
-                    <div class="my-8.75 sm:max-lg:flex justify-between items-center">
+                    <div class="mt-8 space-y-3">
                         @foreach ($addressData as $item)
-                            <div class="group max-w-84 p-3 md:p-3.75 lg:p-6 flex xs:not-odd:my-3 rounded-[10px] bg-app-surface duration-450 cursor-pointer hover:shadow-app-card-lg shadow-app-card max-sm:mx-auto">
-                                <div class="h-10 md:h-12 aspect-square bg-app-brand-soft group-hover:bg-picto-primary center rounded-[4px] transition-colors duration-300 shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 text-picto-primary group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <div class="group flex items-center gap-4 rounded-2xl border border-app-line bg-app-page/50 p-4 transition-all duration-300 hover:border-app-brand/40 hover:shadow-app-card">
+                                <div class="icon-tile h-11 w-11 shrink-0 group-hover:bg-app-brand group-hover:text-white transition-colors duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         @switch($item['icon'])
                                             @case('location')
                                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/>
@@ -33,9 +39,9 @@
                                         @endswitch
                                     </svg>
                                 </div>
-                                <div class="ms-3.25 min-w-0 flex-1">
-                                    <p class="text-[12px] md:text-[14px] text-app-content-muted font-normal">{{ $item['title'] }}:</p>
-                                    <p class="text-[14px] md:text-[16px] text-app-content font-medium break-words">{{ $item['description'] }}</p>
+                                <div class="min-w-0 flex-1">
+                                    <p class="text-[12px] md:text-[13px] text-app-content-subtle font-medium">{{ $item['title'] }}</p>
+                                    <p class="text-[14px] md:text-[16px] text-app-content font-semibold break-words">{{ $item['description'] }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -43,52 +49,49 @@
                 @endif
             </div>
 
-            <div class="w-full overflow-y-scroll py-6.5">
-                <p class="text-xl mb-2 xs:text-2xl sm:text-2xl md:text-[38px] font-semibold text-app-content lg:hidden text-center">
-                    Let's discuss your Project
-                </p>
-
+            <div class="relative z-10 rounded-2xl border border-app-line bg-app-page/40 p-5 sm:p-7">
                 @if (session('contact_success'))
-                    <p class="mb-4 rounded-lg border border-app-success/30 bg-app-success/10 px-4 py-3 text-sm text-app-success">
+                    <p class="mb-5 flex items-center gap-2 rounded-xl border border-app-success/30 bg-app-success/10 px-4 py-3 text-sm text-app-success">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m20 6-11 11-5-5"/>
+                        </svg>
                         {{ session('contact_success') }}
                     </p>
                 @endif
 
-                <p class="text-[12px] xs:text-[14px] max-lg:text-center sm:text-lg font-normal text-app-content-muted">
-                    I'm always open to discussing backend work or partnership opportunities.
-                </p>
-                <div class="mx-2">
-                    <form method="POST" action="{{ route('contact.store') }}" class="flex flex-col gap-4 mt-4">
-                        @csrf
-                        <div>
-                            <input type="text" name="name" value="{{ old('name') }}" placeholder="Name*"
-                                class="input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-app-line w-full rounded-none px-0">
-                            @error('name')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
-                        </div>
-                        <div>
-                            <input type="email" name="email" value="{{ old('email') }}" placeholder="Email*"
-                                class="input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-app-line w-full rounded-none px-0">
-                            @error('email')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
-                        </div>
-                        <div>
-                            <input type="text" name="subject" value="{{ old('subject') }}" placeholder="Subject"
-                                class="input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-app-line w-full rounded-none px-0">
-                            @error('subject')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
-                        </div>
-                        <div>
-                            <textarea name="message" rows="3" placeholder="Message*"
-                                class="textarea textarea-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-app-line w-full rounded-none px-0">{{ old('message') }}</textarea>
-                            @error('message')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
-                        </div>
+                <p class="mb-5 text-lg font-semibold text-app-content">Send a message</p>
 
-                        <button type="submit" class="btn gap-3 max-lg:mx-auto btn-primary rounded-sm mt-5 text-[13px] md:text-[16px] w-fit font-semibold lg:mt-12.5 p-2 md:px-4">
-                            Submit
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 md:w-5 aspect-square" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
+                <form method="POST" action="{{ route('contact.store') }}" class="flex flex-col gap-4">
+                    @csrf
+
+                    <div>
+                        <input type="text" name="name" value="{{ old('name') }}" placeholder="Your name*"
+                            class="input input-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0">
+                        @error('name')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
+                    </div>
+                    <div>
+                        <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address*"
+                            class="input input-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0">
+                        @error('email')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
+                    </div>
+                    <div>
+                        <input type="text" name="subject" value="{{ old('subject') }}" placeholder="Subject"
+                            class="input input-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0">
+                        @error('subject')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
+                    </div>
+                    <div>
+                        <textarea name="message" rows="3" placeholder="Tell me about your project*"
+                            class="textarea textarea-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0">{{ old('message') }}</textarea>
+                        @error('message')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3 w-fit gap-3 rounded-full px-7 text-[13px] md:text-[15px] font-semibold">
+                        Send message
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 md:w-5 aspect-square" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>
+                        </svg>
+                    </button>
+                </form>
             </div>
         </div>
     </div>

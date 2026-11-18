@@ -34,6 +34,7 @@
 @endphp
 <div class="reveal content px-2 py-10 md:py-15 lg:py-25 max-xxl:px-4" id="services">
     <div class="max-sm:px-2 text-center mx-auto max-w-165 mb-12 md:mb-16">
+        <span class="section-kicker mb-3">Expertise</span>
         <p class="section-title">What We Do</p>
         <p class="font-normal text-[18px] max-sm:text-[14px] pt-6 text-app-content-subtle">
             We specialize in building reliable, secure, and high-performance systems that power real businesses.
@@ -41,13 +42,16 @@
     </div>
 
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        @foreach ($services as $service)
-            <div class="rounded-xl bg-app-surface shadow-app-card shadow-lg p-6 sm:p-8">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-picto-primary/10 text-picto-primary">
+        @foreach ($services as $index => $service)
+            <div class="surface-card card-lift group relative overflow-hidden rounded-2xl p-6 sm:p-8">
+                <div class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-app-brand/10 blur-2xl transition-all duration-500 group-hover:bg-app-brand/20"></div>
+                <span class="absolute right-6 top-6 text-xs font-bold tracking-widest text-app-content-subtle">0{{ $index + 1 }}</span>
+
+                <div class="icon-tile relative mb-5 h-12 w-12 group-hover:bg-app-brand group-hover:text-white transition-colors duration-500">
                     {!! $service['icon'] !!}
                 </div>
                 <p class="mb-3 text-lg font-semibold text-app-content">{{ $service['title'] }}</p>
-                <p class="text-[14px] sm:text-[15px] font-normal text-app-content-muted">{{ $service['description'] }}</p>
+                <p class="text-[14px] sm:text-[15px] font-normal leading-relaxed text-app-content-muted">{{ $service['description'] }}</p>
             </div>
         @endforeach
     </div>

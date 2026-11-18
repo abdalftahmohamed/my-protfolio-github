@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navbar) {
         const handleNavbarScroll = () => {
             const scrolled = window.scrollY > 50;
-            navbar.classList.toggle('bg-app-surface-muted', scrolled);
-            navbar.classList.toggle('border-b', scrolled);
+            navbar.classList.toggle('bg-app-surface-muted/90', scrolled);
             navbar.classList.toggle('border-app-line', scrolled);
-            navbar.classList.toggle('bg-app-page', !scrolled);
+            navbar.classList.toggle('border-transparent', !scrolled);
+            navbar.classList.toggle('bg-app-page/90', !scrolled);
         };
         window.addEventListener('scroll', handleNavbarScroll);
         handleNavbarScroll();

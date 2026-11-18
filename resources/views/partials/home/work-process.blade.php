@@ -26,8 +26,9 @@
         ],
     ];
 @endphp
-<div class="reveal content grid xl:grid-cols-2 xl:items-center px-2 py-5 md:py-10 lg:py-25 xl:py-35 max-xxl:px-4" id="work-process">
-    <div class="lg:pe-10 xl:pe-35.75 max-xs:mb-3 max-xl:mb-8">
+<div class="reveal content grid xl:grid-cols-2 xl:items-center px-2 py-12 md:py-18 lg:py-26 max-xxl:px-4" id="work-process">
+    <div class="lg:pe-10 xl:pe-35.75 max-xs:mb-3 max-xl:mb-10">
+        <span class="section-kicker mb-3 max-xl:justify-center">How I work</span>
         <p class="section-title max-xl:text-center">Work Process</p>
         <p class="mt-6 mb-4 md:text-[18px] text-sm font-normal max-xl:text-center text-app-content-muted">
             Every project starts with understanding the problem, not the code. From there I design a
@@ -38,18 +39,20 @@
         </p>
     </div>
 
-    <div class="grid xs:grid-cols-2 justify-end my-2 w-fit mx-auto">
+    <div class="grid xs:grid-cols-2 gap-4 my-2 w-full max-w-2xl mx-auto">
         @foreach ($workSteps as $index => $data)
-            <div class="group rounded-xl hover:drop-shadow-2xl shadow-app-card ease-out duration-1000 p-4 sm:p-8 bg-app-surface aspect-auto sm:max-w-78 {{ $index % 2 == 1 ? 'xs:ms-3 xs:mt-6' : 'xs:mb-6' }}">
-                <div class="w-11 h-11 sm:w-18 sm:h-18 bg-app-brand-soft group-hover:bg-picto-primary text-center center rounded-md transition-colors duration-500">
-                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="max-sm:p-2 sm:w-8 sm:h-8">
+            <div class="surface-card card-lift group relative overflow-hidden rounded-2xl p-5 sm:p-7 {{ $index % 2 == 1 ? 'xs:mt-6' : '' }}">
+                <div class="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-app-brand/10 blur-2xl transition-all duration-500 group-hover:bg-app-brand/20"></div>
+                <span class="absolute right-5 top-5 text-xs font-bold tracking-widest text-app-content-subtle">0{{ $data['id'] }}</span>
+
+                <div class="icon-tile relative h-12 w-12 sm:h-14 sm:w-14 group-hover:bg-app-brand group-hover:text-white transition-colors duration-500">
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7">
                         <path d="{{ $data['svgPath'] }}" class="fill-app-brand group-hover:fill-white transition-colors duration-500" />
                     </svg>
                 </div>
-                <div class="mt-3 xs:mt-4 sm:mt-8">
-                    <p class="font-semibold sm:text-xl">{{ $data['id'] }}. {{ $data['title'] }}</p>
-                    <p class="mt-3 text-[13px] sm:text-[16px] text-app-content-muted">{{ $data['description'] }}</p>
-                </div>
+
+                <p class="mt-5 font-semibold sm:text-xl text-app-content">{{ $data['title'] }}</p>
+                <p class="mt-2 text-[13px] sm:text-[15px] leading-relaxed text-app-content-muted">{{ $data['description'] }}</p>
             </div>
         @endforeach
     </div>

@@ -1,5 +1,5 @@
 <x-layout :profile="$profile">
-    <div class="relative">
+    <div class="relative site-canvas overflow-hidden">
         @include('partials.home.hero')
         @include('partials.home.about')
         <div class="bg-app-surface-muted">

@@ -77,7 +77,7 @@
         ];
     @endphp
 
-    <div id="navbar" class="sticky top-0 bg-app-page z-50 transition-all duration-500">
+    <div id="navbar" class="sticky top-0 z-50 border-b border-transparent bg-app-page/90 backdrop-blur-xl transition-all duration-500">
         <div class="navbar flex justify-between mx-auto content gap-2">
             <div class="flex min-w-0 items-center gap-3">
                 <div class="dropdown">
@@ -86,15 +86,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabindex="0" class="menu menu-lg dropdown-content rounded-box z-1 mt-3 w-56 p-2 shadow font-semibold flex-nowrap bg-app-surface text-app-content">
+                    <ul tabindex="0" class="menu menu-lg dropdown-content z-1 mt-3 w-56 p-2 rounded-2xl font-semibold flex-nowrap surface-card shadow-app-card-lg text-app-content">
                         @foreach ($navItems as $item)
-                            <li><a data-nav-link data-menu-link href="#{{ $item['url'] }}" class="hover:text-picto-primary px-5 py-3 mx-1">{{ $item['name'] }}</a></li>
+                            <li><a data-nav-link data-menu-link href="#{{ $item['url'] }}" class="hover:text-app-brand px-5 py-3 mx-1 rounded-lg">{{ $item['name'] }}</a></li>
                         @endforeach
                     </ul>
                 </div>
 
                 <a href="#introduction" class="flex items-center border-0 min-w-0 xl:max-xxl:ps-5">
-                    <span class="flex h-8 w-8 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-2xl bg-picto-primary text-lg sm:text-2xl font-bold text-white">
+                    <span class="flex h-9 w-9 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-app-brand via-fuchsia-500 to-app-brand-hover text-base sm:text-2xl font-bold text-white shadow-lg shadow-app-brand/25">
                         {{ mb_substr($profile->name ?? 'P', 0, 1) }}
                     </span>
                     <p class="truncate text-base xs:text-lg sm:text-2xl md:text-[32px] my-auto ms-[12px] font-semibold">{{ $profile->name ?? 'Portfolio' }}</p>
@@ -104,7 +104,7 @@
             <div class="flex items-center shrink-0 gap-2 max-xs:gap-1">
                 <ul class="hidden xl:flex menu menu-horizontal text-[15px] font-medium shrink-0">
                     @foreach ($navItems as $item)
-                        <li><a data-nav-link href="#{{ $item['url'] }}" class="hover:text-picto-primary px-3 py-3">{{ $item['name'] }}</a></li>
+                        <li><a data-nav-link href="#{{ $item['url'] }}" class="hover:text-app-brand px-3 py-3 rounded-lg transition-colors">{{ $item['name'] }}</a></li>
                     @endforeach
                 </ul>
                 <button type="button" data-theme-toggle
@@ -128,7 +128,9 @@
         {{ $slot }}
     </main>
 
-    <div class="bg-[#2A374A]">
+    <div class="relative overflow-hidden bg-[#2A374A] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-app-brand before:to-transparent">
+        <div class="ambient-orb -top-24 left-1/4 h-64 w-64 bg-app-brand/20"></div>
+        <div class="ambient-orb -bottom-32 right-1/4 h-72 w-72 bg-app-mint/10"></div>
         @php
             $footerItems = [
                 ['id' => 1, 'name' => 'Home', 'url' => 'introduction'],
@@ -141,7 +143,7 @@
                 ['id' => 8, 'name' => 'Contact', 'url' => 'contact'],
             ];
         @endphp
-        <div class="pt-25 md:pt-40 content max-2xl:px-3">
+        <div class="relative z-10 pt-25 md:pt-40 content max-2xl:px-3">
             <div class="flex max-md:flex-col justify-between mx-0 items-center h-full w-full text-neutral-200">
                 <a href="#introduction" class="flex items-center border-0">
                     <span class="flex h-8 w-8 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-picto-primary text-lg sm:text-2xl font-bold text-white">
@@ -160,7 +162,7 @@
                 <p class="text-[12px] sm:text-[16px]">Copyright &copy; {{ date('Y') }} {{ $profile->name ?? 'Portfolio' }}.</p>
             </div>
             <div class="flex justify-center gap-2 py-6">
-                <x-social-media :profile="$profile" class="!text-white hover:!bg-white hover:!text-[#2A374A]" />
+                <x-social-media :profile="$profile" class="!text-white/80 hover:!bg-app-brand hover:!text-white rounded-full" />
             </div>
         </div>
     </div>
