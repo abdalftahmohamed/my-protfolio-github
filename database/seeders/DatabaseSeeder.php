@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'tagline' => 'Building scalable, secure, and high-performance web applications.',
             'bio' => "Full Stack Developer with 4 years of experience specializing in Laravel, PHP, and MySQL, with a proven track record of building scalable, secure, and high-performance web applications. Experienced in designing and developing RESTful APIs, integrating third-party services, optimizing database performance, and implementing secure authentication, authorization, and Role-Based Access Control (RBAC). Strong foundation in MVC architecture, Object-Oriented Programming (OOP), and software design principles, with hands-on experience in real-time applications using Pusher and Livewire. Passionate about writing clean, maintainable code, solving complex technical challenges, and delivering reliable, production-ready backend solutions.",
             'email' => 'abdalftahmohamed054@gmail.com',
-            'phone' => '+20 109 152 3688',
+            'phone' => '+201091523688',
             'location' => 'Mansoura, Egypt',
             'github_url' => 'https://github.com/abdalftahmohamed?tab=repositories',
             'linkedin_url' => 'https://www.linkedin.com/in/abdelftah-mohamed-abdalftah-0640831b9',
