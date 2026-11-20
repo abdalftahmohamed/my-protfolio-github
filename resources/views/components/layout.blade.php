@@ -78,7 +78,7 @@
     @endphp
 
     <div id="navbar" class="sticky top-0 z-50 border-b border-transparent bg-app-page/90 backdrop-blur-xl transition-all duration-500">
-        <div class="navbar flex justify-between mx-auto content gap-2">
+        <div class="navbar flex w-full justify-between gap-2 px-4 sm:px-6 xxl:px-10">
             <div class="flex min-w-0 items-center gap-3">
                 <div class="dropdown">
                     <div tabindex="0" role="button" class="btn btn-ghost xl:hidden">

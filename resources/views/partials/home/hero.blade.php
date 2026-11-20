@@ -4,7 +4,7 @@
     $initials = collect(explode(' ', $profile->name ?? 'Y N'))->map(fn ($p) => mb_substr($p, 0, 1))->take(2)->implode('');
 @endphp
 
-<div class="reveal relative overflow-hidden pt-12 pb-10 lg:pt-20 lg:pb-16 max-xxl:px-4 xxl:max-w-[1320px] xxl:mx-auto introduction-profile-background" id="introduction">
+<div class="reveal relative w-full overflow-hidden px-4 pt-12 pb-10 sm:px-6 lg:pt-20 lg:pb-16 xxl:px-10 introduction-profile-background" id="introduction">
     <div class="ambient-orb -left-24 top-0 h-72 w-72 bg-app-brand/15"></div>
     <div class="ambient-orb -right-20 bottom-0 h-80 w-80 bg-app-mint/20"></div>
 
