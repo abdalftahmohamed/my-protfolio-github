@@ -1,5 +1,6 @@
 <x-admin-layout title="Experience">
-    <div class="mb-6 flex justify-end">
+    <div class="mb-6 flex flex-wrap items-center justify-end gap-3">
+        <x-admin.section-toggle section-key="experiences" />
         <a href="{{ route('admin.experiences.create') }}" class="rounded-lg bg-app-brand px-4 py-2 text-sm font-semibold text-white hover:bg-app-brand-hover">
             Add experience
         </a>

@@ -66,15 +66,16 @@
     </div>
 
     @php
-        $navItems = [
+        $sectionVisible = fn (string $key): bool => (bool) ($siteSections->get($key)?->is_visible ?? true);
+        $navItems = collect([
             ['id' => 1, 'name' => 'Home', 'url' => 'introduction'],
             ['id' => 2, 'name' => 'About', 'url' => 'profile'],
-            ['id' => 3, 'name' => 'Skills', 'url' => 'skills'],
-            ['id' => 4, 'name' => 'Projects', 'url' => 'portfolio'],
-            ['id' => 5, 'name' => 'Experience', 'url' => 'experience'],
+            ['id' => 3, 'name' => 'Skills', 'url' => 'skills', 'section' => 'skills'],
+            ['id' => 4, 'name' => 'Projects', 'url' => 'portfolio', 'section' => 'projects'],
+            ['id' => 5, 'name' => 'Experience', 'url' => 'experience', 'section' => 'experiences'],
             ['id' => 6, 'name' => 'Services', 'url' => 'services'],
-            ['id' => 7, 'name' => 'Testimonials', 'url' => 'testimonials'],
-        ];
+            ['id' => 7, 'name' => 'Testimonials', 'url' => 'testimonials', 'section' => 'testimonials'],
+        ])->filter(fn ($item) => ! isset($item['section']) || $sectionVisible($item['section']))->values()->all();
     @endphp
 
     <div id="navbar" class="sticky top-0 z-50 border-b border-transparent bg-app-page/90 backdrop-blur-xl transition-all duration-500">
@@ -132,16 +133,16 @@
         <div class="ambient-orb -top-24 left-1/4 h-64 w-64 bg-app-brand/20"></div>
         <div class="ambient-orb -bottom-32 right-1/4 h-72 w-72 bg-app-mint/10"></div>
         @php
-            $footerItems = [
+            $footerItems = collect([
                 ['id' => 1, 'name' => 'Home', 'url' => 'introduction'],
                 ['id' => 2, 'name' => 'About', 'url' => 'profile'],
-                ['id' => 3, 'name' => 'Skills', 'url' => 'skills'],
-                ['id' => 4, 'name' => 'Projects', 'url' => 'portfolio'],
-                ['id' => 5, 'name' => 'Experience', 'url' => 'experience'],
+                ['id' => 3, 'name' => 'Skills', 'url' => 'skills', 'section' => 'skills'],
+                ['id' => 4, 'name' => 'Projects', 'url' => 'portfolio', 'section' => 'projects'],
+                ['id' => 5, 'name' => 'Experience', 'url' => 'experience', 'section' => 'experiences'],
                 ['id' => 6, 'name' => 'Services', 'url' => 'services'],
-                ['id' => 7, 'name' => 'Testimonials', 'url' => 'testimonials'],
+                ['id' => 7, 'name' => 'Testimonials', 'url' => 'testimonials', 'section' => 'testimonials'],
                 ['id' => 8, 'name' => 'Contact', 'url' => 'contact'],
-            ];
+            ])->filter(fn ($item) => ! isset($item['section']) || $sectionVisible($item['section']))->values()->all();
         @endphp
         <div class="relative z-10 w-full px-4 pt-25 sm:px-6 md:pt-40 xxl:px-10">
             <div class="flex max-md:flex-col justify-between mx-0 items-center h-full w-full text-neutral-200">

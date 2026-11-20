@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        $this->call(SiteSectionSeeder::class);
+
         $password = "12345678";
 
         User::updateOrCreate(

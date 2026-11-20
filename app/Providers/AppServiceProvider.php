@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\Models\SiteSection;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View as ViewFactory;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,5 +24,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
+
+        ViewFactory::composer('*', function (View $view): void {
+            $view->with('siteSections', SiteSection::query()->get()->keyBy('key'));
+        });
     }
 }

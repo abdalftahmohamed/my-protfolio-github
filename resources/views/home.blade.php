@@ -5,15 +5,25 @@
         <div class="bg-app-surface-muted">
             @include('partials.home.work-process')
         </div>
-        @include('partials.home.skills')
-        @include('partials.home.projects')
-        @include('partials.home.experience')
-        @include('partials.home.education')
+        @if ($siteSections->get('skills')?->is_visible ?? true)
+            @include('partials.home.skills')
+        @endif
+        @if ($siteSections->get('projects')?->is_visible ?? true)
+            @include('partials.home.projects')
+        @endif
+        @if ($siteSections->get('experiences')?->is_visible ?? true)
+            @include('partials.home.experience')
+        @endif
+        @if ($siteSections->get('educations')?->is_visible ?? true)
+            @include('partials.home.education')
+        @endif
         @include('partials.home.work-together')
         <div class="bg-app-surface-muted">
             @include('partials.home.services')
         </div>
-        @include('partials.home.testimonials')
+        @if ($siteSections->get('testimonials')?->is_visible ?? true)
+            @include('partials.home.testimonials')
+        @endif
         @include('partials.home.contact')
     </div>
 </x-layout>

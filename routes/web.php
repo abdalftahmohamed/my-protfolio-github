@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\SiteSectionController;
 use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\AuthController;
@@ -29,6 +30,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::patch('sections/{section}/toggle', [SiteSectionController::class, 'toggle'])->name('sections.toggle');
 
     Route::resource('skills', SkillController::class)->except('show');
     Route::resource('projects', ProjectController::class)->except('show');
