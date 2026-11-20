@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('field')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
+            $table->boolean('visible')->default(true);
             $table->unsignedInteger('order')->default(0);
             $table->timestamps();
         });

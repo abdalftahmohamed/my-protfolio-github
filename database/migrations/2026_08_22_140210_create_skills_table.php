@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('category')->default('other');
             $table->unsignedTinyInteger('level')->default(80);
             $table->string('icon')->nullable();
+            $table->boolean('visible')->default(true);
             $table->unsignedInteger('order')->default(0);
             $table->timestamps();
         });

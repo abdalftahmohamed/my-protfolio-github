@@ -18,6 +18,7 @@
                         <p class="mt-1 truncate text-xs text-app-content-muted">{{ $testimonial->quote }}</p>
                     </div>
                     <div class="flex shrink-0 items-center gap-4 text-sm">
+                        <x-admin.item-visible-toggle :item="$testimonial" resource="testimonials" />
                         <a href="{{ route('admin.testimonials.edit', $testimonial) }}" class="text-app-content-muted hover:text-app-content">Edit</a>
                         <form method="POST" action="{{ route('admin.testimonials.destroy', $testimonial) }}" onsubmit="return confirm('Delete this testimonial?')">
                             @csrf

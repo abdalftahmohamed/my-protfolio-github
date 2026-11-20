@@ -16,6 +16,7 @@ class Education extends Model
         'start_date',
         'end_date',
         'order',
+        'visible',
     ];
 
     protected function casts(): array
@@ -24,11 +25,17 @@ class Education extends Model
             'start_date' => 'date',
             'end_date' => 'date',
             'order' => 'integer',
+            'visible' => 'boolean',
         ];
     }
 
     public function scopeOrdered(Builder $query): Builder
     {
         return $query->orderBy('order')->orderByDesc('start_date');
+    }
+
+    public function scopeVisible(Builder $query): Builder
+    {
+        return $query->where('visible', true);
     }
 }

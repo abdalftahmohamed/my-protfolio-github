@@ -16,6 +16,7 @@ class Project extends Model
         'live_url',
         'featured',
         'order',
+        'visible',
     ];
 
     protected function casts(): array
@@ -24,11 +25,17 @@ class Project extends Model
             'tech_stack' => 'array',
             'featured' => 'boolean',
             'order' => 'integer',
+            'visible' => 'boolean',
         ];
     }
 
     public function scopeOrdered(Builder $query): Builder
     {
         return $query->orderBy('order')->orderByDesc('created_at');
+    }
+
+    public function scopeVisible(Builder $query): Builder
+    {
+        return $query->where('visible', true);
     }
 }

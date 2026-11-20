@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationController;
+use App\Http\Controllers\Admin\ItemVisibilityController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -34,6 +35,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::delete('profile/cv', [ProfileController::class, 'destroyCv'])->name('profile.cv.destroy');
 
     Route::patch('sections/{section}/toggle', [SiteSectionController::class, 'toggle'])->name('sections.toggle');
+    Route::patch('{resource}/{id}/visible', [ItemVisibilityController::class, 'toggle'])
+        ->whereIn('resource', ['skills', 'projects', 'experiences', 'educations', 'testimonials'])
+        ->name('items.visible');
 
     Route::resource('skills', SkillController::class)->except('show');
     Route::resource('projects', ProjectController::class)->except('show');

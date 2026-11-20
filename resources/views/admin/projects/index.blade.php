@@ -29,6 +29,7 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-4 text-sm">
+                        <x-admin.item-visible-toggle :item="$project" resource="projects" />
                         <a href="{{ route('admin.projects.edit', $project) }}" class="text-app-content-muted hover:text-app-content">Edit</a>
                         <form method="POST" action="{{ route('admin.projects.destroy', $project) }}" onsubmit="return confirm('Delete this project?')">
                             @csrf

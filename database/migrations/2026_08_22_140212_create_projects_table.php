@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('github_url')->nullable();
             $table->string('live_url')->nullable();
             $table->boolean('featured')->default(false);
+            $table->boolean('visible')->default(true);
             $table->unsignedInteger('order')->default(0);
             $table->timestamps();
         });

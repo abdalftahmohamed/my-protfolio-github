@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('role')->nullable();
             $table->unsignedInteger('order')->default(0);
+            $table->boolean('visible')->default(true);
             $table->timestamps();
         });
     }

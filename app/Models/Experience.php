@@ -16,6 +16,7 @@ class Experience extends Model
         'end_date',
         'is_current',
         'order',
+        'visible',
     ];
 
     protected function casts(): array
@@ -25,11 +26,17 @@ class Experience extends Model
             'end_date' => 'date',
             'is_current' => 'boolean',
             'order' => 'integer',
+            'visible' => 'boolean',
         ];
     }
 
     public function scopeOrdered(Builder $query): Builder
     {
         return $query->orderBy('order')->orderByDesc('start_date');
+    }
+
+    public function scopeVisible(Builder $query): Builder
+    {
+        return $query->where('visible', true);
     }
 }

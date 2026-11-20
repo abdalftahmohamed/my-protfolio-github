@@ -15,11 +15,11 @@ class HomeController extends Controller
     public function index(): View
     {
         $profile = Profile::first();
-        $skills = Skill::ordered()->get()->groupBy('category');
-        $projects = Project::ordered()->get();
-        $experiences = Experience::ordered()->get();
-        $educations = Education::ordered()->get();
-        $testimonials = Testimonial::ordered()->get();
+        $skills = Skill::visible()->ordered()->get()->groupBy('category');
+        $projects = Project::visible()->ordered()->get();
+        $experiences = Experience::visible()->ordered()->get();
+        $educations = Education::visible()->ordered()->get();
+        $testimonials = Testimonial::visible()->ordered()->get();
 
         return view('home', compact('profile', 'skills', 'projects', 'experiences', 'educations', 'testimonials'));
     }
