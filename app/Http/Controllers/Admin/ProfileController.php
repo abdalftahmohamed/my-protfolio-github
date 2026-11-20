@@ -68,4 +68,28 @@ class ProfileController extends Controller
 
         return back()->with('status', 'Profile updated.');
     }
+
+    public function destroyAvatar(): RedirectResponse
+    {
+        $profile = Profile::firstOrNew();
+
+        if ($profile->avatar_path) {
+            Storage::disk('public')->delete($profile->avatar_path);
+            $profile->update(['avatar_path' => null]);
+        }
+
+        return back()->with('status', 'Avatar deleted.');
+    }
+
+    public function destroyCv(): RedirectResponse
+    {
+        $profile = Profile::firstOrNew();
+
+        if ($profile->cv_path) {
+            Storage::disk('public')->delete($profile->cv_path);
+            $profile->update(['cv_path' => null]);
+        }
+
+        return back()->with('status', 'CV deleted.');
+    }
 }

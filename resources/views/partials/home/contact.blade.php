@@ -61,27 +61,38 @@
 
                 <p class="mb-5 text-lg font-semibold text-app-content">Send a message</p>
 
+                @if ($errors->any())
+                    <div class="mb-5 rounded-xl border border-app-error/30 bg-app-error/10 px-4 py-3 text-sm text-app-error" role="alert">
+                        <p class="font-semibold">Please check the highlighted fields.</p>
+                        <ul class="mt-1 list-disc space-y-0.5 ps-5">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ route('contact.store') }}" class="flex flex-col gap-4">
                     @csrf
 
                     <div>
-                        <input type="text" name="name" value="{{ old('name') }}" placeholder="Your name*"
-                            class="input input-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0">
+                        <input type="text" name="name" value="{{ old('name') }}" placeholder="Your name*" required maxlength="255"
+                            class="input input-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0 @error('name') border-app-error @enderror">
                         @error('name')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
                     </div>
                     <div>
-                        <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address*"
-                            class="input input-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0">
+                        <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address*" required maxlength="255"
+                            class="input input-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0 @error('email') border-app-error @enderror">
                         @error('email')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
                     </div>
                     <div>
-                        <input type="text" name="subject" value="{{ old('subject') }}" placeholder="Subject"
-                            class="input input-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0">
+                        <input type="text" name="subject" value="{{ old('subject') }}" placeholder="Subject" maxlength="255"
+                            class="input input-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0 @error('subject') border-app-error @enderror">
                         @error('subject')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
                     </div>
                     <div>
-                        <textarea name="message" rows="3" placeholder="Tell me about your project*"
-                            class="textarea textarea-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0">{{ old('message') }}</textarea>
+                        <textarea name="message" rows="1" placeholder="Tell me about your project*" required maxlength="5000"
+                            class="textarea textarea-lg form-field border-0 border-b-2 focus:outline-none w-full rounded-none px-0 @error('message') border-app-error @enderror">{{ old('message') }}</textarea>
                         @error('message')<p class="mt-1 text-xs text-app-error">{{ $message }}</p>@enderror
                     </div>
 

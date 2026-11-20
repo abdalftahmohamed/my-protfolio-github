@@ -30,6 +30,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('profile/avatar', [ProfileController::class, 'destroyAvatar'])->name('profile.avatar.destroy');
+    Route::delete('profile/cv', [ProfileController::class, 'destroyCv'])->name('profile.cv.destroy');
 
     Route::patch('sections/{section}/toggle', [SiteSectionController::class, 'toggle'])->name('sections.toggle');
 

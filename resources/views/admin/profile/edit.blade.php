@@ -76,7 +76,14 @@
             <div>
                 <label class="mb-1 block text-xs font-medium text-app-content-muted">Avatar</label>
                 @if ($profile->avatar_path)
-                    <img src="{{ asset('storage/' . $profile->avatar_path) }}" class="mb-2 h-16 w-16 rounded-full object-cover">
+                    <div class="mb-2 flex items-center gap-3">
+                        <img src="{{ asset('storage/' . $profile->avatar_path) }}" class="h-16 w-16 rounded-full object-cover">
+                        <button type="submit" form="delete-avatar-form"
+                            class="rounded-lg border border-app-line px-3 py-1.5 text-xs font-semibold text-app-error transition hover:border-app-error/50 hover:bg-app-error/10"
+                            onclick="return confirm('Delete the current avatar?')">
+                            Delete avatar
+                        </button>
+                    </div>
                 @endif
                 <input type="file" name="avatar" accept="image/*"
                     class="w-full rounded-lg border border-app-line bg-app-admin-surface px-4 py-2.5 text-sm text-app-content outline-none file:mr-3 file:rounded-md file:border-0 file:bg-app-brand file:px-3 file:py-1.5 file:text-white">
@@ -85,7 +92,14 @@
             <div>
                 <label class="mb-1 block text-xs font-medium text-app-content-muted">CV (PDF)</label>
                 @if ($profile->cv_path)
-                    <a href="{{ asset('storage/' . $profile->cv_path) }}" target="_blank" class="mb-2 block text-sm text-app-brand hover:text-app-brand-ink">Current CV</a>
+                    <div class="mb-2 flex flex-wrap items-center gap-3">
+                        <a href="{{ asset('storage/' . $profile->cv_path) }}" target="_blank" class="text-sm text-app-brand hover:text-app-brand-ink">Current CV</a>
+                        <button type="submit" form="delete-cv-form"
+                            class="rounded-lg border border-app-line px-3 py-1.5 text-xs font-semibold text-app-error transition hover:border-app-error/50 hover:bg-app-error/10"
+                            onclick="return confirm('Delete the current CV?')">
+                            Delete CV
+                        </button>
+                    </div>
                 @endif
                 <input type="file" name="cv" accept="application/pdf"
                     class="w-full rounded-lg border border-app-line bg-app-admin-surface px-4 py-2.5 text-sm text-app-content outline-none file:mr-3 file:rounded-md file:border-0 file:bg-app-brand file:px-3 file:py-1.5 file:text-white">
@@ -115,4 +129,18 @@
             Save changes
         </button>
     </form>
+
+    @if ($profile->avatar_path)
+        <form id="delete-avatar-form" method="POST" action="{{ route('admin.profile.avatar.destroy') }}" class="hidden">
+            @csrf
+            @method('DELETE')
+        </form>
+    @endif
+
+    @if ($profile->cv_path)
+        <form id="delete-cv-form" method="POST" action="{{ route('admin.profile.cv.destroy') }}" class="hidden">
+            @csrf
+            @method('DELETE')
+        </form>
+    @endif
 </x-admin-layout>

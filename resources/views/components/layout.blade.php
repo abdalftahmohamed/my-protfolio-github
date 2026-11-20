@@ -60,10 +60,10 @@
 </head>
 <body class="relative bg-app-page text-app-content antialiased transition-colors duration-500">
 
-    <noscript><style>#preloader { display: none !important; }</style></noscript>
-    <div id="preloader" role="presentation" aria-hidden="true">
-        <img src="{{ asset('img/codeverse-logo.png') }}" alt="" width="220" height="76">
-    </div>
+{{--    <noscript><style>#preloader { display: none !important; }</style></noscript>--}}
+{{--    <div id="preloader" role="presentation" aria-hidden="true">--}}
+{{--        <img src="{{ asset('img/codeverse-logo.png') }}" alt="" width="220" height="76">--}}
+{{--    </div>--}}
 
     @php
         $sectionVisible = fn (string $key): bool => (bool) ($siteSections->get($key)?->is_visible ?? true);
