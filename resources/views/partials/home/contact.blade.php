@@ -6,8 +6,8 @@
     ]);
 @endphp
 
-<div class="reveal relative -bottom-10 -mt-10 z-10 px-2">
-    <div class="content surface-card relative overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-16" id="contact">
+<div class="reveal relative -bottom-10 -mt-10 z-10 w-full px-4 sm:px-6 xxl:px-10">
+    <div class="w-full surface-card relative overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-16" id="contact">
         <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-app-brand to-transparent"></div>
         <div class="ambient-orb -right-20 -top-24 h-64 w-64 bg-app-brand/10"></div>
 

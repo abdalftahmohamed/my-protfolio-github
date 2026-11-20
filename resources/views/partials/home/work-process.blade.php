@@ -26,7 +26,7 @@
         ],
     ];
 @endphp
-<div class="reveal content grid xl:grid-cols-2 xl:items-center px-2 py-12 md:py-18 lg:py-26 max-xxl:px-4" id="work-process">
+<div class="reveal w-full grid xl:grid-cols-2 xl:items-center px-4 py-12 sm:px-6 md:py-18 lg:py-26 xxl:px-10" id="work-process">
     <div class="lg:pe-10 xl:pe-35.75 max-xs:mb-3 max-xl:mb-10">
         <span class="section-kicker mb-3 max-xl:justify-center">How I work</span>
         <p class="section-title max-xl:text-center">Work Process</p>

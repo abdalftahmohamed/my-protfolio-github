@@ -2,16 +2,17 @@
     $initials = collect(explode(' ', $profile->name ?? 'Y N'))->map(fn ($p) => mb_substr($p, 0, 1))->take(2)->implode('');
 @endphp
 
-<div class="reveal relative mx-4 xxl:mx-auto xxl:max-w-[1320px] -mt-6 z-10 rounded-3xl surface-card shadow-app-card-lg max-xl:mb-5 p-6 sm:p-10 lg:p-16 xl:p-22" id="profile">
+<div class="reveal relative mx-4 -mt-6 z-10 rounded-3xl surface-card shadow-app-card-lg max-xl:mb-5 p-6 sm:mx-6 sm:p-10 lg:p-16 xl:p-22 xxl:mx-10" id="profile">
     <div class="flex max-md:flex-col items-center gap-10 lg:gap-16">
         <div class="w-full max-w-sm shrink-0">
             <div class="rounded-2xl bg-gradient-to-br from-app-brand/60 via-fuchsia-400/40 to-app-mint/60 p-1">
                 <div class="h-80 w-full overflow-hidden rounded-[1rem] bg-app-surface-muted center sm:h-96">
-                    @if ($profile?->avatar_path)
-                        <img class="h-full w-full object-cover" src="{{ asset('storage/' . $profile->avatar_path) }}" alt="{{ $profile->name }}">
-                    @else
-                        <span class="gradient-text text-7xl font-bold">{{ $initials }}</span>
-                    @endif
+                    <span class="gradient-text text-7xl font-bold">{{ $initials }}</span>
+
+                    {{--                    @if ($profile?->avatar_path)--}}
+{{--                        <img class="h-full w-full object-cover" src="{{ asset('storage/' . $profile->avatar_path) }}" alt="{{ $profile->name }}">--}}
+{{--                    @else--}}
+{{--                    @endif--}}
                 </div>
             </div>
 

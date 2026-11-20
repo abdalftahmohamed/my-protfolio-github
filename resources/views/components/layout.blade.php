@@ -143,7 +143,7 @@
                 ['id' => 8, 'name' => 'Contact', 'url' => 'contact'],
             ];
         @endphp
-        <div class="relative z-10 pt-25 md:pt-40 content max-2xl:px-3">
+        <div class="relative z-10 w-full px-4 pt-25 sm:px-6 md:pt-40 xxl:px-10">
             <div class="flex max-md:flex-col justify-between mx-0 items-center h-full w-full text-neutral-200">
                 <a href="#introduction" class="flex items-center border-0">
                     <span class="flex h-8 w-8 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-picto-primary text-lg sm:text-2xl font-bold text-white">

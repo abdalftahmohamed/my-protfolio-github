@@ -1,4 +1,4 @@
-<div class="reveal content px-2 py-12 md:py-18 lg:py-26 max-xxl:px-4" id="experience">
+<div class="reveal w-full px-4 py-12 sm:px-6 md:py-18 lg:py-26 xxl:px-10" id="experience">
     <div class="max-sm:px-2 text-center mx-auto max-w-144.25 mb-12">
         <span class="section-kicker mb-3">Journey</span>
         <p class="section-title">Experience</p>

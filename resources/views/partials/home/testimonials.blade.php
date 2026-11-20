@@ -1,4 +1,4 @@
-<div class="reveal content px-2 py-10 md:py-15 lg:py-25 max-xxl:px-4" id="testimonials">
+<div class="reveal w-full px-4 py-10 sm:px-6 md:py-15 lg:py-25 xxl:px-10" id="testimonials">
     <div class="max-sm:px-2 text-center mx-auto max-w-165 mb-12 md:mb-16">
         <span class="section-kicker mb-3">Kind words</span>
         <p class="section-title">What Clients Say</p>

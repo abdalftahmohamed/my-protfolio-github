@@ -1,4 +1,4 @@
-<div class="reveal content mt-10 md:mt-15 xl:mt-25 mb-10 md:mb-25 max-xxl:p-2" id="portfolio">
+<div class="reveal w-full px-4 mt-10 sm:px-6 md:mt-15 xl:mt-25 mb-10 md:mb-25 xxl:px-10" id="portfolio">
     <div class="xl:mb-17.5 mb-5">
         <div class="max-sm:px-2 text-center mx-auto max-w-144.25">
             <span class="section-kicker mb-3">Selected work</span>

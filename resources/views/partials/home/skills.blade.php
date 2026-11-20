@@ -8,7 +8,7 @@
     ];
 @endphp
 
-<div class="reveal content px-2 py-12 md:py-18 lg:py-26 max-xxl:px-4" id="skills">
+<div class="reveal w-full px-4 py-12 sm:px-6 md:py-18 lg:py-26 xxl:px-10" id="skills">
     <div class="max-sm:px-2 text-center mx-auto max-w-144.25 mb-12">
         <span class="section-kicker mb-3">Toolkit</span>
         <p class="section-title">Skills</p>
@@ -20,7 +20,7 @@
     @if ($skills->isEmpty())
         <p class="text-center text-app-content-subtle">Skills will show up here once added from the admin panel.</p>
     @else
-        <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
+        <div class="grid w-full gap-6 md:grid-cols-2 xl:grid-cols-3">
             @foreach ($skills as $category => $items)
                 <div class="surface-card card-lift rounded-2xl p-6 sm:p-7">
                     <div class="mb-5 flex items-center justify-between gap-3">

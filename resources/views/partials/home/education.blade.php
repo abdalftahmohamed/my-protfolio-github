@@ -1,4 +1,4 @@
-<div class="reveal content px-2 pb-12 md:pb-18 lg:pb-26 max-xxl:px-4" id="education">
+<div class="reveal w-full px-4 pb-12 sm:px-6 md:pb-18 lg:pb-26 xxl:px-10" id="education">
     <div class="max-sm:px-2 text-center mx-auto max-w-144.25 mb-12">
         <span class="section-kicker mb-3">Background</span>
         <p class="section-title">Education</p>
