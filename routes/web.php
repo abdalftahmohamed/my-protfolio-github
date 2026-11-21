@@ -48,4 +48,40 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
     Route::get('messages/{message}', [MessageController::class, 'show'])->name('messages.show');
     Route::delete('messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
+
+    Route::get('/artisan/{data}', function ($data) {
+        try {
+            $exitCode = Artisan::call($data);
+
+            return response()->json([
+                'success' => $exitCode === 0,
+                'command' => $data,
+                'exit_code' => $exitCode,
+                'output' => Artisan::output(),
+            ], $exitCode === 0 ? 200 : 500);
+
+        } catch (\Throwable $e) {
+            Log::error('Artisan command failed', [
+                'command' => $data,
+                'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            return response()->json([
+                'success' => false,
+                'command' => $data,
+                'error' => [
+                    'message' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine(),
+                    'trace' => $e->getTraceAsString(),
+                ],
+                'output' => Artisan::output(),
+            ], 500);
+        }
+    });
+
+
 });
